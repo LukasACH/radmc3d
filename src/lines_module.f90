@@ -3199,9 +3199,9 @@ end subroutine lines_compute_velgradient
 ! the constraint equation:
 !
 !       ___n
-!        \       
+!        \
 !        /   n_i = 1
-!       ---      
+!       ---
 !        i
 !
 ! INPUT:

@@ -35,7 +35,7 @@
 !                                      /||\
 !                                    / |  | \
 !  First level refinement           *  o  o  o
-!                                 /||\   
+!                                 /||\
 !                               / |  | \
 !  Second level refinement     o  o  o  o
 !
