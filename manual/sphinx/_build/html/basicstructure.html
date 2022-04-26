@@ -1,186 +1,40 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Basic structure and functionality &mdash; radmc3d 2.0 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-  
-  
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <title>Basic structure and functionality &#8212; radmc3d 2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Dust continuum radiative transfer" href="dustradtrans.html" />
-    <link rel="prev" title="Installation of RADMC-3D" href="installation.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="prev" title="Installation of RADMC-3D" href="installation.html" />
    
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> radmc3d
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstarting with RADMC-3D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of the RADMC-3D package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation of RADMC-3D</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic structure and functionality</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basic-dataflow">Basic dataflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#radiative-processes">Radiative processes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#coordinate-systems">Coordinate systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-spatial-grid">The spatial grid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#computations-that-radmc-3d-can-perform">Computations that RADMC-3D can perform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-a-model-is-set-up-and-computed-a-rough-overview">How a model is set up and computed: a rough overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#organization-of-model-directories">Organization of model directories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#running-the-example-models">Running the example models</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="dustradtrans.html">Dust continuum radiative transfer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lineradtrans.html">Line radiative transfer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imagesspectra.html">Making images and spectra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gridding.html">More information about the gridding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stars.html">More information about the treatment of stars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internalsetup.html">Modifying RADMC-3D: Internal setup and user-specified radiative processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pythontools.html">Python analysis tool set</a></li>
-<li class="toctree-l1"><a class="reference internal" href="toolsinside.html">Analysis tools inside of radmc3d</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vtkoutput.html">Visualization with VTK tools (e.g. Paraview or VisIt)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips, tricks and problem hunting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="inputoutputfiles.html">Main input and output files of RADMC-3D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binaryio.html">Binary I/O files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="clioptions.html">Command-line options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="optionscompat.html">Which options are mutually incompatible?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opacitieswww.html">Acquiring opacities from the WWW</a></li>
-<li class="toctree-l1"><a class="reference internal" href="versiontracker.html">Version tracker: Development history</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">radmc3d</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Basic structure and functionality</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/basicstructure.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
             
-  <div class="section" id="basic-structure-and-functionality">
+  <section id="basic-structure-and-functionality">
 <span id="chap-basic-struct-and-func"></span><h1>Basic structure and functionality<a class="headerlink" href="#basic-structure-and-functionality" title="Permalink to this headline">¶</a></h1>
 <p>RADMC-3D is a very versatile radiative transfer package with many
 possibilities. As a consequence it is a rather complex package. However, we
@@ -202,7 +56,7 @@ out-of-the-box, or that you can adapt to your needs.</p>
 <p>In this chapter we give an overview of the rough functionality of the code
 in its simplest form: ignoring all the hidden fancy options and
 possibilities. For the details we then refer to the chapters ahead.</p>
-<div class="section" id="basic-dataflow">
+<section id="basic-dataflow">
 <span id="sec-dataflow"></span><h2>Basic dataflow<a class="headerlink" href="#basic-dataflow" title="Permalink to this headline">¶</a></h2>
 <p>Let us first clarify the basic philosophy of the code package (details will
 be done later). When we talk about RADMC-3D we talk about the
@@ -231,12 +85,14 @@ be a *.binp, *.bdat or *.bout file.</em></p>
 <p>This basic dataflow is shown in Fig. <a class="reference internal" href="#fig-dataflow-basic"><span class="std std-ref">Pictographic representation of the basic dataflow of RADMC-3D. The user
 produces the input files; RADMC-3D reads them, performs the calculation,
 and produces output files. The user can then analyze the output files.</span></a>.</p>
-<div class="figure align-default" id="id1">
+<figure class="align-default" id="id1">
 <span id="fig-dataflow-basic"></span><a class="reference internal image-reference" href="_images/dataflow-basic.svg"><img alt="_images/dataflow-basic.svg" src="_images/dataflow-basic.svg" width="50%" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Pictographic representation of the basic dataflow of RADMC-3D. The user
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Pictographic representation of the basic dataflow of RADMC-3D. The user
 produces the input files; RADMC-3D reads them, performs the calculation,
 and produces output files. The user can then analyze the output files.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
+</figcaption>
+</figure>
 <p>Not always can RADMC-3D produce its output files in one go. Sometimes it has to
 use a two-stage procedure: For dust continuum radiative transfer the dust
 temperatures are computed first (stage 1), and the images and/or spectra are
@@ -248,13 +104,15 @@ which in the case of dust continuum radiative transfer is <code class="docutils 
 of a 2-stage procedure, such as for dust continuum transfer. An intermediate
 file is produced that will be used by stage 2, but of course the user can
 also analyze the intermediate file itself.</span></a>.</p>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <span id="fig-dataflow-twostage"></span><a class="reference internal image-reference" href="_images/dataflow-twostage.svg"><img alt="_images/dataflow-twostage.svg" src="_images/dataflow-twostage.svg" width="85%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Pictographic representation of the dataflow of RADMC-3D for the case
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Pictographic representation of the dataflow of RADMC-3D for the case
 of a 2-stage procedure, such as for dust continuum transfer. An intermediate
 file is produced that will be used by stage 2, but of course the user can
 also analyze the intermediate file itself.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+</figcaption>
+</figure>
 <p>Several of these input files contain large tables, for instance of the density
 at each grid point, or the stellar flux at each wavelength bin. It is, of
 course, impossible to create these datafiles by hand. The idea is that you
@@ -283,20 +141,24 @@ of a 2-stage procedure, such as for dust continuum transfer. An intermediate
 file is produced that will be used by stage 2, but of course the user can
 also analyze the intermediate file itself.</span></a> for the
 two-stage dataflow.</p>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <span id="fig-dataflow-basic-python"></span><a class="reference internal image-reference" href="_images/dataflow-basic-python.svg"><img alt="_images/dataflow-basic-python.svg" src="_images/dataflow-basic-python.svg" width="50%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Pictographic representation of how the Python programs in the example directories
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Pictographic representation of how the Python programs in the example directories
 are used to create the input files of RADMC-3D.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id4">
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
 <span id="fig-dataflow-twostage-python"></span><a class="reference internal image-reference" href="_images/dataflow-twostage-python.svg"><img alt="_images/dataflow-twostage-python.svg" src="_images/dataflow-twostage-python.svg" width="85%" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Pictographic representation of the dataflow of RADMC-3D for the case
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Pictographic representation of the dataflow of RADMC-3D for the case
 of a 2-stage procedure, such as for dust continuum transfer. An intermediate
 file is produced that will be used by stage 2, but of course the user can
 also analyze the intermediate file itself.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="radiative-processes">
+</figcaption>
+</figure>
+</section>
+<section id="radiative-processes">
 <span id="sec-rad-processes"></span><h2>Radiative processes<a class="headerlink" href="#radiative-processes" title="Permalink to this headline">¶</a></h2>
 <p>Currently RADMC-3D handles the following radiative processes:</p>
 <ul>
@@ -356,8 +218,8 @@ method implemented. The reason is that it is very costly, and for many
 applications presumably not worth the computational effort.</p>
 </li>
 </ul>
-</div>
-<div class="section" id="coordinate-systems">
+</section>
+<section id="coordinate-systems">
 <span id="sec-coord-systems"></span><h2>Coordinate systems<a class="headerlink" href="#coordinate-systems" title="Permalink to this headline">¶</a></h2>
 <p>With RADMC-3D you can specify your density distribution in two coordinate
 systems:</p>
@@ -416,8 +278,8 @@ When using spherical coordinates, please read Section
 <a class="reference internal" href="gridding.html#sec-separable-refinement"><span class="std std-ref">Separable grid refinement in spherical coordinates (important!)</span></a>.</p>
 </li>
 </ul>
-</div>
-<div class="section" id="the-spatial-grid">
+</section>
+<section id="the-spatial-grid">
 <span id="sec-spatial-grid"></span><h2>The spatial grid<a class="headerlink" href="#the-spatial-grid" title="Permalink to this headline">¶</a></h2>
 <p>To specify the density or temperature structure (or any other spatial
 variable) as a function of spatial location we must have a grid. There
@@ -471,8 +333,8 @@ mirror copy.</p>
 its simplified version: the layer-style grid refinement. See Section
 <a class="reference internal" href="inputoutputfiles.html#sec-grid-input"><span class="std std-ref">INPUT (required): amr_grid.inp</span></a> and Chapter <a class="reference internal" href="gridding.html#chap-gridding"><span class="std std-ref">More information about the gridding</span></a> for more information
 about the gridding and the (adaptive) mesh refinement (AMR).</p>
-</div>
-<div class="section" id="computations-that-radmc-3d-can-perform">
+</section>
+<section id="computations-that-radmc-3d-can-perform">
 <span id="sec-actions"></span><h2>Computations that RADMC-3D can perform<a class="headerlink" href="#computations-that-radmc-3d-can-perform" title="Permalink to this headline">¶</a></h2>
 <p>The code RADMC-3D (i.e. the executable <code class="docutils literal notranslate"><span class="pre">radmc3d</span></code>) is <em>one</em> code for <em>many</em>
 actions. Depending on which command-line arguments you give, RADMC-3D can do
@@ -534,8 +396,8 @@ images, then you will not use this.</p>
 </ol>
 <p>In addition to the above main methods, you can ask RADMC-3D to do various minor
 things as well, which will be described throughout this manual.</p>
-</div>
-<div class="section" id="how-a-model-is-set-up-and-computed-a-rough-overview">
+</section>
+<section id="how-a-model-is-set-up-and-computed-a-rough-overview">
 <h2>How a model is set up and computed: a rough overview<a class="headerlink" href="#how-a-model-is-set-up-and-computed-a-rough-overview" title="Permalink to this headline">¶</a></h2>
 <p>A radiative transfer code such as RADMC-3D has the task of computing synthetic
 images and spectra of a model that you specify. You tell the code what the dust
@@ -588,8 +450,8 @@ at the example models to see how this is (or better: can be) done.</p>
 <p>We will explain all these things in much more detail below, and we will discuss
 also many other radiative transfer problem types. The above example is really
 just meant to give an impression of how RADMC-3D works.</p>
-</div>
-<div class="section" id="organization-of-model-directories">
+</section>
+<section id="organization-of-model-directories">
 <span id="sec-rough-overview-models"></span><h2>Organization of model directories<a class="headerlink" href="#organization-of-model-directories" title="Permalink to this headline">¶</a></h2>
 <p>The general philosophy of the RADMC-3D code package is the following. The core
 of everything is the fortran code <code class="docutils literal notranslate"><span class="pre">radmc3d</span></code>. This is the main code which does
@@ -632,8 +494,8 @@ the user (see Chapter <a class="reference internal" href="pythontools.html#chap-
 <a class="reference internal" href="installation.html#sec-install-pythonscripts"><span class="std std-ref">Installing the simple Python analysis tools</span></a>). But here again, you are free to use any
 other plotting software and/or data postprocessing packages.</p></li>
 </ol>
-</div>
-<div class="section" id="running-the-example-models">
+</section>
+<section id="running-the-example-models">
 <span id="sec-example-models"></span><h2>Running the example models<a class="headerlink" href="#running-the-example-models" title="Permalink to this headline">¶</a></h2>
 <p>Often the fastest and easiest way to learn a code is simply to analyze and run a
 set of example models. They are listed in the <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory. Each model
@@ -707,63 +569,105 @@ type <code class="docutils literal notranslate"><span class="pre">make</span></c
 file and some small stuff). Now you can run the model.</p>
 <p><em>Please read the README file in each of the example model directories.
 Everything is explained there, including how to make the relevant plots.</em></p>
-</div>
-</div>
+</section>
+</section>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="dustradtrans.html" class="btn btn-neutral float-right" title="Dust continuum radiative transfer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="installation.html" class="btn btn-neutral float-left" title="Installation of RADMC-3D" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">radmc3d</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstarting with RADMC-3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of the RADMC-3D package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation of RADMC-3D</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic structure and functionality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-dataflow">Basic dataflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#radiative-processes">Radiative processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#coordinate-systems">Coordinate systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-spatial-grid">The spatial grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computations-that-radmc-3d-can-perform">Computations that RADMC-3D can perform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-a-model-is-set-up-and-computed-a-rough-overview">How a model is set up and computed: a rough overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#organization-of-model-directories">Organization of model directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-example-models">Running the example models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dustradtrans.html">Dust continuum radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lineradtrans.html">Line radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imagesspectra.html">Making images and spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gridding.html">More information about the gridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stars.html">More information about the treatment of stars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internalsetup.html">Modifying RADMC-3D: Internal setup and user-specified radiative processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythontools.html">Python analysis tool set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="toolsinside.html">Analysis tools inside of radmc3d</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtkoutput.html">Visualization with VTK tools (e.g. Paraview or VisIt)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips, tricks and problem hunting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputoutputfiles.html">Main input and output files of RADMC-3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binaryio.html">Binary I/O files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clioptions.html">Command-line options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionscompat.html">Which options are mutually incompatible?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opacitieswww.html">Acquiring opacities from the WWW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versiontracker.html">Version tracker: Development history</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Installation of RADMC-3D</a></li>
+      <li>Next: <a href="dustradtrans.html" title="next chapter">Dust continuum radiative transfer</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
     </div>
-  
+</div>
+<script>$('#searchbox').show(0);</script>
 
-  <hr/>
 
-  <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2020, Cornelis Dullemond
 
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-</footer>
+
+
+
 
         </div>
       </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Cornelis Dullemond.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/basicstructure.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
 
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
     
-   
 
-</body>
+    
+  </body>
 </html>

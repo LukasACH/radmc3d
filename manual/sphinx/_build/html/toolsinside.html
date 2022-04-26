@@ -1,195 +1,50 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Analysis tools inside of radmc3d &mdash; radmc3d 2.0 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-  
-  
-  
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <title>Analysis tools inside of radmc3d &#8212; radmc3d 2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Visualization with VTK tools (e.g. Paraview or VisIt)" href="vtkoutput.html" />
-    <link rel="prev" title="Python analysis tool set" href="pythontools.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
+    <link rel="prev" title="Python analysis tool set" href="pythontools.html" />
    
-  <div class="wy-grid-for-nav">
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> radmc3d
-          
-
-          
-          </a>
-
-          
-            
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstarting with RADMC-3D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of the RADMC-3D package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation of RADMC-3D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="basicstructure.html">Basic structure and functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dustradtrans.html">Dust continuum radiative transfer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lineradtrans.html">Line radiative transfer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imagesspectra.html">Making images and spectra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gridding.html">More information about the gridding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stars.html">More information about the treatment of stars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="internalsetup.html">Modifying RADMC-3D: Internal setup and user-specified radiative processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pythontools.html">Python analysis tool set</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Analysis tools inside of radmc3d</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#making-a-regularly-spaced-datacube-subbox-of-amr-based-models">Making a regularly-spaced datacube (‘subbox’) of AMR-based models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#creating-a-subbox">Creating a subbox</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#format-of-the-subbox-output-files">Format of the subbox output files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-radmc3d-tools-to-read-the-subbox-data">Using the <code class="docutils literal notranslate"><span class="pre">radmc3d_tools</span></code> to read the subbox data</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#alternative-to-subbox-arbitrary-sampling-of-amr-based-models">Alternative to subbox: arbitrary sampling of AMR-based models</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="vtkoutput.html">Visualization with VTK tools (e.g. Paraview or VisIt)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips, tricks and problem hunting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="inputoutputfiles.html">Main input and output files of RADMC-3D</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binaryio.html">Binary I/O files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="clioptions.html">Command-line options</a></li>
-<li class="toctree-l1"><a class="reference internal" href="optionscompat.html">Which options are mutually incompatible?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="opacitieswww.html">Acquiring opacities from the WWW</a></li>
-<li class="toctree-l1"><a class="reference internal" href="versiontracker.html">Version tracker: Development history</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">radmc3d</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Analysis tools inside of radmc3d</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/toolsinside.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
             
-  <div class="section" id="analysis-tools-inside-of-radmc3d">
+  <section id="analysis-tools-inside-of-radmc3d">
 <span id="chap-radmc3d-internal-analysis-tools"></span><h1>Analysis tools inside of radmc3d<a class="headerlink" href="#analysis-tools-inside-of-radmc3d" title="Permalink to this headline">¶</a></h1>
 <p>There are also some special purpose features in the Fortran-90 <code class="docutils literal notranslate"><span class="pre">radmc3d</span></code> code that can be useful for analyzing complex AMR-gridded models.</p>
-<div class="section" id="making-a-regularly-spaced-datacube-subbox-of-amr-based-models">
+<section id="making-a-regularly-spaced-datacube-subbox-of-amr-based-models">
 <span id="sec-subbox"></span><h2>Making a regularly-spaced datacube (‘subbox’) of AMR-based models<a class="headerlink" href="#making-a-regularly-spaced-datacube-subbox-of-amr-based-models" title="Permalink to this headline">¶</a></h2>
 <p>Because handling AMR-based models in Python or other data analysis packages can
 be rather cumbersome, we decided that it would be useful to create the
 possibility in <code class="docutils literal notranslate"><span class="pre">radmc3d</span></code> to generate 1-D, 2-D or 3-D regularly spaced
 ‘cut-outs’ or ‘sub-boxes’ (whatever you want to call them) of any variable of
 the model.</p>
-<div class="section" id="creating-a-subbox">
+<section id="creating-a-subbox">
 <h3>Creating a subbox<a class="headerlink" href="#creating-a-subbox" title="Permalink to this headline">¶</a></h3>
 <p>You can call <code class="docutils literal notranslate"><span class="pre">radmc3d</span></code> directly from the shell asking it to make
 the subbox. Here is an example:</p>
@@ -226,8 +81,8 @@ first two levels are included (remember that <span class="math notranslate nohig
 J1-0 line of CO). See Section <a class="reference internal" href="lineradtrans.html#sec-calcstore-levpop"><span class="std std-ref">Background information: Calculation and storage of level populations</span></a> for more information
 on how RADMC-3D automatically selects a subset of levels for storage in the
 global array (and thus also for writing out to file).</p>
-</div>
-<div class="section" id="format-of-the-subbox-output-files">
+</section>
+<section id="format-of-the-subbox-output-files">
 <span id="sec-subbox-file-format"></span><h3>Format of the subbox output files<a class="headerlink" href="#format-of-the-subbox-output-files" title="Permalink to this headline">¶</a></h3>
 <p>All the files produced by the subbox method have the following format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iformat</span>                                  <span class="o">&lt;===</span> <span class="n">Typically</span> <span class="mi">2</span> <span class="n">at</span> <span class="n">present</span>
@@ -269,8 +124,8 @@ levels 4 and 8 are in this file, then <code class="docutils literal notranslate"
 the identification numbers will be <code class="docutils literal notranslate"><span class="pre">48</span></code>. For all other quantities
 (dust density, dust temperature) this line of identification numbers is simply
 <code class="docutils literal notranslate"><span class="pre">123</span></code> etc.</p>
-</div>
-<div class="section" id="using-the-radmc3d-tools-to-read-the-subbox-data">
+</section>
+<section id="using-the-radmc3d-tools-to-read-the-subbox-data">
 <h3>Using the <code class="docutils literal notranslate"><span class="pre">radmc3d_tools</span></code> to read the subbox data<a class="headerlink" href="#using-the-radmc3d-tools-to-read-the-subbox-data" title="Permalink to this headline">¶</a></h3>
 <p>In Section <a class="reference internal" href="pythontools.html#sec-simpleread-tools"><span class="std std-ref">The simpleread.py library</span></a> a set of simple Python tools are
 discussed to read a variety of output files from RADMC-3D (as well as input
@@ -283,7 +138,7 @@ Example: First run RADMC-3D:</p>
 </pre></div>
 </div>
 <p>Then go into Python and do:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">radmc3d_tools.simpleread</span> <span class="k">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">radmc3d_tools.simpleread</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">dustdens</span> <span class="o">=</span> <span class="n">read_subbox</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;dust_density&#39;</span><span class="p">)</span>
 <span class="n">dusttemp</span> <span class="o">=</span> <span class="n">read_subbox</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;dust_temperature&#39;</span><span class="p">)</span>
 <span class="n">grid</span>     <span class="o">=</span> <span class="n">dustdens</span><span class="o">.</span><span class="n">grid</span>
@@ -296,9 +151,9 @@ Example: First run RADMC-3D:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="alternative-to-subbox-arbitrary-sampling-of-amr-based-models">
+</section>
+</section>
+<section id="alternative-to-subbox-arbitrary-sampling-of-amr-based-models">
 <span id="sec-sampling"></span><h2>Alternative to subbox: arbitrary sampling of AMR-based models<a class="headerlink" href="#alternative-to-subbox-arbitrary-sampling-of-amr-based-models" title="Permalink to this headline">¶</a></h2>
 <p>For some purposes it is useful to sample values of various quantities at
 arbitrary positions in the grid. The idea is very much like the subbox
@@ -377,63 +232,104 @@ statements like <code class="docutils literal notranslate"><span class="pre">if(
 <code class="docutils literal notranslate"><span class="pre">do_sample_myvariable=.true.</span></code> or reset <code class="docutils literal notranslate"><span class="pre">do_sample_myvariable=.false.</span></code> etc.</p></li>
 </ul>
 <p>That should do it.</p>
-</div>
-</div>
+</section>
+</section>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="vtkoutput.html" class="btn btn-neutral float-right" title="Visualization with VTK tools (e.g. Paraview or VisIt)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="pythontools.html" class="btn btn-neutral float-left" title="Python analysis tool set" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">radmc3d</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstarting with RADMC-3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of the RADMC-3D package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation of RADMC-3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basicstructure.html">Basic structure and functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dustradtrans.html">Dust continuum radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lineradtrans.html">Line radiative transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imagesspectra.html">Making images and spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gridding.html">More information about the gridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stars.html">More information about the treatment of stars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internalsetup.html">Modifying RADMC-3D: Internal setup and user-specified radiative processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythontools.html">Python analysis tool set</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Analysis tools inside of radmc3d</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#making-a-regularly-spaced-datacube-subbox-of-amr-based-models">Making a regularly-spaced datacube (‘subbox’) of AMR-based models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-subbox">Creating a subbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#format-of-the-subbox-output-files">Format of the subbox output files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-radmc3d-tools-to-read-the-subbox-data">Using the <code class="docutils literal notranslate"><span class="pre">radmc3d_tools</span></code> to read the subbox data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#alternative-to-subbox-arbitrary-sampling-of-amr-based-models">Alternative to subbox: arbitrary sampling of AMR-based models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vtkoutput.html">Visualization with VTK tools (e.g. Paraview or VisIt)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tipsandtricks.html">Tips, tricks and problem hunting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputoutputfiles.html">Main input and output files of RADMC-3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binaryio.html">Binary I/O files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clioptions.html">Command-line options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optionscompat.html">Which options are mutually incompatible?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opacitieswww.html">Acquiring opacities from the WWW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="versiontracker.html">Version tracker: Development history</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="pythontools.html" title="previous chapter">Python analysis tool set</a></li>
+      <li>Next: <a href="vtkoutput.html" title="next chapter">Visualization with VTK tools (e.g. Paraview or VisIt)</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
     </div>
-  
+</div>
+<script>$('#searchbox').show(0);</script>
 
-  <hr/>
 
-  <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2020, Cornelis Dullemond
 
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-</footer>
+
+
+
 
         </div>
       </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Cornelis Dullemond.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/toolsinside.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
 
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
     
-   
 
-</body>
+    
+  </body>
 </html>
